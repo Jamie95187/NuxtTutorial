@@ -33,7 +33,6 @@ import Joke from '../../components/Joke';
       } catch (err) {
         console.log(err)
       }
-
     },
     head() {
       return {
