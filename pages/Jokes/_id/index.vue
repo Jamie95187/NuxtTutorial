@@ -28,7 +28,6 @@ export default {
       const res = await axios.get(`https://icanhazdadjoke.com/j/${this.$route.params.id}`, config);
 
       this.joke = res.data.joke;
-      console.log(this.joke);
     } catch (err) {
       console.log(err)
     }

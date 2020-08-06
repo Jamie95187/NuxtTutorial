@@ -67,7 +67,3 @@ import SearchJokes from '../../components/SearchJokes';
     }
   };
 </script>
-
-<style>
-
-</style>
