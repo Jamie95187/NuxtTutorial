@@ -21,21 +21,6 @@ import SearchJokes from '../../components/SearchJokes';
         ]
       }
     },
-    async created() {
-      const config = {
-        headers: {
-          'Accept': 'application/json'
-        }
-      }
-
-      try {
-        const res = await axios.get('https://icanhazdadjoke.com/search', config);
-
-        this.jokes = res.data.results;
-      } catch (err) {
-        console.log(err)
-      }
-    },
     methods: {
       async searchText(text) {
         const config = {
@@ -51,6 +36,21 @@ import SearchJokes from '../../components/SearchJokes';
         } catch (err) {
           console.log(err)
         }
+      }
+    },
+    async created() {
+      const config = {
+        headers: {
+          'Accept': 'application/json'
+        }
+      }
+
+      try {
+        const res = await axios.get('https://icanhazdadjoke.com/search', config);
+
+        this.jokes = res.data.results;
+      } catch (err) {
+        console.log(err)
       }
     },
     head() {

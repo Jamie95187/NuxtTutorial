@@ -1,5 +1,9 @@
 <template>
   <div>
+    <nuxt-link to="/jokes">Back To Jokes
+    </nuxt-link>
+    <br />
+    <button v-on:click="getNewJoke">Shuffle</button>
     <h2>{{ joke.joke }}</h2>
     <hr />
     <small>Joke ID: {{ joke.id }}</small>
@@ -19,20 +23,25 @@ export default {
       joke: {}
     }
   },
-  async created() {
-    const config = {
-      headers: {
-        'Accept': 'application/json'
+  methods: {
+    async getNewJoke() {
+      const config = {
+        headers: {
+          'Accept': 'application/json'
+        }
+      }
+
+      try {
+        const res = await axios.get(`https://icanhazdadjoke.com/`, config);
+
+        this.joke = res.data;
+      } catch (err) {
+        console.log(err)
       }
     }
-
-    try {
-      const res = await axios.get("https://icanhazdadjoke.com/", config);
-
-      this.joke = res.data;
-    } catch (err) {
-      console.log(err)
-    }
+  },
+  async created() {
+    this.getNewJoke();
   },
   head() {
     return {
