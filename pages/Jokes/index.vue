@@ -1,6 +1,7 @@
 <template>
   <div>
     <SearchJokes v-on:search-text="searchText" />
+    <nuxt-link to="/randomjoke">Surprise</nuxt-link>
     <Joke v-for="joke in jokes" :key="joke.id" :id="joke.id" :joke="joke.joke"/>
   </div>
 </template>
